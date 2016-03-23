@@ -56,14 +56,13 @@ class UploadFormPrimaryView(PrimaryView):
         """ Create the form primary view.
         """
         # Get the entity that contains the form
-        entity = self.cw_rset.get_entity(0,0)
+        entity = self.cw_rset.get_entity(0, 0)
 
         # Display the form
         self.display_form(entity)
-        
+
 
 def registration_callback(vreg):
     """ Register the tuned primary views.
     """
     vreg.register(UploadFormPrimaryView)
-

@@ -83,7 +83,7 @@ class CWUploadView(View):
 
         .. note::
 
-            At upload, all field inputs are checked to match the 'check_value' 
+            At upload, all field inputs are checked to match the 'check_value'
             regular expressions defined in the 'upload_structure_json' instance
             parameter.
         """
@@ -97,10 +97,10 @@ class CWUploadView(View):
         # Get the form fields from configuration file
         config = load_forms(self._cw.vreg.config)
 
-        # Create a structure to store values that must be checked before the 
+        # Create a structure to store values that must be checked before the
         # insertion in the data base
         check_struct = {}
-    
+
         # If json file missing, generate error page
         if config == -1:
             self.w(u'<div class="panel panel-danger">')
@@ -134,7 +134,7 @@ class CWUploadView(View):
             self.w(u'</div>')
             return -1
 
-        # Create the form       
+        # Create the form
         form = self._cw.vreg["forms"].select(
             "upload-form", self._cw, action="", form_name=form_name)
         try:
@@ -176,8 +176,7 @@ class CWUploadView(View):
             self.w(u'</div>')
             self.w(u'</div>')
             return -1
-            
-                
+
         # Form processings
         try:
             posted = form.process_posted()
@@ -185,7 +184,7 @@ class CWUploadView(View):
             # Get the form parameters
             inline_params = {}
             deported_params = {}
-            for field_name, field_value in posted.iteritems():                  
+            for field_name, field_value in posted.iteritems():
 
                 # Filter fields stored in the db or deported on the filesystem
                 if isinstance(field_value, Binary):
@@ -240,7 +239,7 @@ class CWUploadView(View):
                 "CWUpload", title=unicode(inline_params["upload_title"]),
                 form_name=unicode(form_name), result_form=form_eid,
                 result_data=upload_file_eids, uploaded_by=user_eid).eid
-            
+
             # Redirection to the created CWUpload entity
             raise Redirect(self._cw.build_url(eid=upload_eid))
         except RequestError as error:
@@ -250,4 +249,3 @@ class CWUploadView(View):
         self.w(u'<h3 class="panel-title">Upload ("{0}" form)</h3>'.format(
             form_name))
         form.render(w=self.w, formvalues=self._cw.form)
-

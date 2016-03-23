@@ -11,7 +11,7 @@ from yams.buildobjs import EntityType
 from yams.buildobjs import String
 from yams.buildobjs import Bytes
 from yams.buildobjs import RichString
-from yams.buildobjs import SubjectRelation   
+from yams.buildobjs import SubjectRelation
 from cubicweb.schema import ERQLExpression
 from cubicweb.schema import RQLUniqueConstraint
 
@@ -159,4 +159,3 @@ class CWUpload(EntityType):
     # The link to the owner of the data
     uploaded_by = SubjectRelation(
         "CWUser", cardinality="1*", composite="subject")
-    

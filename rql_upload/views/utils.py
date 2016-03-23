@@ -30,7 +30,7 @@ def load_forms(cw_config):
     config: dict
         the forms descriptions defined in the 'upload_structure_json' setting
         file.
-    -1 
+    -1
         if the file is not specified or found on the system.
     -2
         if the file cannot be decoded as json file.

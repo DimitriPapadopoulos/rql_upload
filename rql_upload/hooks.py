@@ -43,7 +43,7 @@ class ServerStartupHook(hook.Hook):
     An 'UploadFile' entity data is deported on the server file system.
     To do so, we configure the 'UploadFile' 'data' attribute with the
     'BytesFileSystemStorage' storage.
-    The repository location is defined at the instance creation 
+    The repository location is defined at the instance creation
     'upload_directory' (instance parameter).
     If no instance parameter is set, the 'file' field won't be created.
     """

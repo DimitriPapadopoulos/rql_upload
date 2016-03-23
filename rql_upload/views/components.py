@@ -20,7 +20,7 @@ from utils import load_forms
 ###############################################################################
 
 class CWUploadBox(component.CtxComponent):
-    """ Class that generate a left box on the web browser to access all the 
+    """ Class that generate a left box on the web browser to access all the
     decalred forms in the 'upload_structure_json' cubicweb instance parameter.
 
     It will appear on the left and contain the names if all forms defined in the
@@ -38,8 +38,8 @@ class CWUploadBox(component.CtxComponent):
 
     def render_body(self, w, **kwargs):
         """ Method that creates the upload navigation box (generates html code).
-            
-            This method displays error messages if the forms can't be extrated 
+
+            This method displays error messages if the forms can't be extrated
             from the configuration file.
         """
         # Get the field form structure
@@ -76,4 +76,3 @@ class CWUploadBox(component.CtxComponent):
                 w(u'<a class="btn btn-primary" href="{0}">'.format(href))
                 w(u'{0}</a>'.format(form_name.title()))
                 w(u'</div></div><br/>')
-

@@ -108,7 +108,7 @@ class NumpyDocString(object):
             'Examples': '',
             'index': {},
             'Description': ''
-            }
+        }
 
         self._parse()
 
@@ -116,7 +116,7 @@ class NumpyDocString(object):
         return self._parsed_data[key]
 
     def __setitem__(self, key, val):
-        if not self._parsed_data.has_key(key):
+        if key not in self._parsed_data:
             warn("Unknown section %s" % key)
         else:
             self._parsed_data[key] = val
@@ -458,7 +458,7 @@ class FunctionDoc(NumpyDocString):
                  'meth': 'method'}
 
         if self._role:
-            if not roles.has_key(self._role):
+            if self._role not in roles:
                 print "Warning: invalid role %s" % self._role
             out += '.. %s:: %s\n    \n\n' % (roles.get(self._role, ''),
                                              func_name)

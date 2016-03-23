@@ -27,7 +27,7 @@ def registration_callback(vreg):
     The preregistered fields are:
 
     * **Basic fields**: StringField - PasswordField - IntField -
-      FloatField - BooleanField - DateField - DateTimeField - TimeField - 
+      FloatField - BooleanField - DateField - DateTimeField - TimeField -
       TimeIntervalField.
 
     * **Compound fields**: FileField.
@@ -40,4 +40,3 @@ def registration_callback(vreg):
 
         # Define class parameters
         DECLARED_FIELDS[field_name] = formfields.__dict__[field_name]
-

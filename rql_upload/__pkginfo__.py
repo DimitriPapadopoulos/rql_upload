@@ -13,7 +13,7 @@ author_email = 'contact@logilab.fr'
 description = ''
 web = 'http://www.cubicweb.org/project/%s' % distname
 
-__depends__ =  {
+__depends__ = {
     'cubicweb': '>= 3.17.4'
 }
 __recommends__ = {}
@@ -23,13 +23,14 @@ classifiers = [
     'Framework :: CubicWeb',
     'Programming Language :: Python',
     'Programming Language :: JavaScript',
-    ]
+]
 
 from os import listdir as _listdir
 from os.path import join, isdir
 from glob import glob
 
 THIS_CUBE_DIR = join('share', 'cubicweb', 'cubes', modname)
+
 
 def listdir(dirpath):
     return [join(dirpath, fname) for fname in _listdir(dirpath)
@@ -40,11 +41,10 @@ def listdir(dirpath):
 data_files = [
     # common files
     [THIS_CUBE_DIR, [fname for fname in glob('*.py') if fname != 'setup.py']],
-    ]
+]
 # check for possible extended cube layout
 for dname in ('entities', 'views', 'sobjects', 'hooks', 'schema', 'data', 'wdoc', 'i18n', 'migration'):
     if isdir(dname):
         data_files.append([join(THIS_CUBE_DIR, dname), listdir(dname)])
 # Note: here, you'll need to add subdirectories if you want
 # them to be included in the debian package
-

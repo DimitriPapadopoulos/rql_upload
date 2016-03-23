@@ -67,7 +67,7 @@ class EntityUploadForm(AnyEntity):
                 # use get and not get_value since data has changed, we only want
                 # to consider explicitly specified values, not old ones
                 filename=self.cw_edited.get("data_name"),
-                format=self.cw_edited.get("data_format"), #encoding=encoding,
+                format=self.cw_edited.get("data_format"),  # encoding=encoding,
                 fallbackencoding=self._cw.encoding)
         if data_format:
             self.cw_edited["data_format"] = unicode(data_format)
